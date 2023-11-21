@@ -1,0 +1,42 @@
+---
+title: "walk and older population"
+author: "Shardul Shetye (sshrdl)"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+## RSETUP
+
+```{r}
+library(readr)
+library(stats)
+library(tidyverse)
+library(rstatix)
+library(ggpubr)
+library(dplyr)
+library(stringr)
+```
+
+## PULL DATASET
+
+```{r}
+WalkDemo <- read_csv("WalkDemo - WalkDemo.csv",show_col_types = FALSE)
+```
+
+```{# {r}
+# WalkDemo$`Percentage of Population over 65` = 
+#   as.numeric(
+#     stringr::str_sub(
+#       WalkDemo$`Percentage of Population over 65`,1,-2
+#     )
+#   )
+#   
+```
+
+```{r}
+summary(WalkDemo$`Percent65`)
+```
+
+```{r}
+cor.test(WalkDemo$`Percent65`,WalkDemo$`WalkIndex`)
+```
